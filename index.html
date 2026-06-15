@@ -1181,6 +1181,9 @@ html, body { width:100%; min-height:100%; overflow-y:auto; overflow-x:hidden; ba
       <div style="font-size:10px;color:var(--text3);margin-top:2px;">并发服务上限</div>
     </div>
   </div>
+  <div style="margin-top:16px;text-align:center;">
+    <div onclick="openAlibabaModal()" style="display:inline-block;padding:10px 24px;background:linear-gradient(135deg,rgba(167,139,250,.2),rgba(10,132,255,.15));border:1px solid rgba(167,139,250,.35);border-radius:24px;cursor:pointer;font-size:12px;color:#a78bfa;font-weight:600;transition:all .2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.borderColor='rgba(167,139,250,.55)';this.style.boxShadow='0 4px 16px rgba(167,139,250,.15)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(167,139,250,.35)';this.style.boxShadow=''">对阿里国际站的思考 &#8594;</div>
+  </div>
 </div>
 <!-- 机会点详情弹窗 -->
 <div id="oppModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:99999;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;" onclick="if(event.target===this)closeOppModal()">
@@ -1236,6 +1239,14 @@ function closeOppModal(){
   setTimeout(function(){m.style.display='none';},300);
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOppModal();});
+
+/* ── ALIBABA MODAL ── */
+function openAlibabaModal(){
+  document.getElementById('oppModalContent').innerHTML='<div style="margin-bottom:18px;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;">阿里国际站</div><div style="font-size:22px;font-weight:800;color:var(--text1);">对阿里国际站的思考</div></div><div style="margin-bottom:20px;padding:16px;background:rgba(255,159,10,.06);border:1px solid rgba(255,159,10,.15);border-radius:12px;"><div style="font-size:12px;font-weight:700;color:#ff9f0a;margin-bottom:10px;">核心判断</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">AGI/ASI 对阿里国际站的最大影响，不是让现有业务更快，而是<strong style="color:var(--text1);">重新定义平台的价值</strong>。当 AI 能把信息不对称、信任摩擦、决策滞后这三个成本压缩到趋近于零时，国际站就不再只是一个"连接买家卖家的市场"，而是成为<strong style="color:var(--text1);">全球贸易的智能操作系统</strong>。</div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;"><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;">从"信息撮合"到"智能服务"</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">现在的国际站本质是"黄页+广告"：买家搜、卖家等、人工聊。未来的国际站是<strong>贸易智能体</strong>：AI 主动帮买家精准找货、自动帮卖家回复询盘、智能处理报关和物流。平台从"信息中介"进化为"贸易合伙人"。</div></div><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;">从"大卖家主导"到"中小卖家普惠"</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">现在大卖家靠外贸团队和资金实力垄断流量。AI 抹平能力差距后，<strong>1 个人的小工厂也能接全球订单</strong>——自动翻译、智能报关、履约追踪全部交给 AI。平台的商家结构将发生质变，中小卖家成为增量主力。</div></div><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;">竞争壁垒从"流量"到"AI 能力护城河"</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">流量可以被买走，竞品可以用补贴抢用户。但<strong>AI 深度理解贸易链路的能力</strong>——合规知识库、谈判策略模型、全球供应链数据——是时间积累的深层护城河。谁先建立，谁就定义下一代贸易平台。</div></div><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:12px;font-weight:700;color:var(--text1);margin-bottom:8px;">我们的机会</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">深度参与商家 AI 服务，不仅是"提升解决率"的工具思维，而是<strong>把对贸易的理解转化为可落地的能力</strong>。从客服场景切入，逐步向询盘、报价、履约等交易核心链路延伸。理解越深入，产品壁垒越高。</div></div></div><div style="padding:14px;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:12px;"><div style="font-size:12px;font-weight:700;color:#a78bfa;margin-bottom:8px;">一句话总结</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">阿里国际站下一个十年的核心命题：<strong style="color:var(--text1);">不是连接更多买家卖家，而是让 AI 替他们完成贸易。</strong></div></div>';
+  const m=document.getElementById('oppModal'), b=document.getElementById('oppModalBox');
+  m.style.display='flex';
+  requestAnimationFrame(function(){m.style.opacity='1';b.style.transform='translateY(0)';});
+}
 
 /* ── CURSOR ── */
 const cur = document.getElementById('cur');
