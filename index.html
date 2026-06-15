@@ -1192,6 +1192,47 @@ html, body { width:100%; min-height:100%; overflow-y:auto; overflow-x:hidden; ba
 </template>
 
 <script>
+/* ── OPPORTUNITY MODAL ── */
+function openOppModal(key){
+  const data={
+    trade:{
+      num:'01',title:'智能贸易中台',color:'#0a84ff',rgb:'10,132,255',
+      before:'询盘靠人工跟进，平均响应24h+；翻译外包3-5天；合同手动审核易出错；履约多方对接信息断层。全链路重度依赖人力，中小供应商出海门槛极高。',
+      now:'AI自动询盘回复（秒级响应）；实时多语言翻译；智能合规审查自动匹配HS编码；履约状态自动同步。人力成本降低70%，合规错误率趋近于零。',
+      future:'全链路无人化智能体，询盘到履约自主完成。中小供应商一键出海，AI自主谈判签约，贸易链路成本趋近于零。'
+    },
+    selection:{
+      num:'02',title:'实时选品预测',color:'#0a84ff',rgb:'10,132,255',
+      before:'靠经验和展会选品，命中率不足30%；库存积压或断货频发，平均库存周转60天+；滞销损失占营收15%以上。',
+      now:'AI聚合社媒、电商、搜索多维数据，实时捕捉消费趋势；智能补货建议将库存周转缩短至30天；滞销率下降60%。',
+      future:'需求预判式供给，ASI深度理解全球消费趋势，零库存按需生产。供应商从赌市场进化为预知市场。'
+    },
+    supply:{
+      num:'03',title:'供应链编排 OS',color:'#ff9f0a',rgb:'255,159,10',
+      before:'供应链断裂靠人工应急，响应时间48h+；物流信息不透明，异常发现滞后；缺乏全局调度视角，断链风险高。',
+      now:'AI监控全球物流异常，自动预警并推荐替代方案；供应商风险评级实时更新；断链响应时间缩短至2h。',
+      future:'ASI实时重排全球供应链拓扑，从响应型进化为预演型。具身机器人完成质检，实物核验成本趋近于零。'
+    },
+    manufacturing:{
+      num:'04',title:'零库存按需制造',color:'#ff9f0a',rgb:'255,159,10',
+      before:'大批量生产赌市场，MOQ居高不下；库存积压严重，滞销损失吞噬利润；生产计划调整周期以月为单位。',
+      now:'小批量快反模式，MOQ降低50%；数据驱动生产决策，周转效率提升2倍；柔性产线支持快速换型。',
+      future:'ASI深度理解每个买家的个性化需求（文化、场景、生命周期），C2M按需制造。彻底消灭库存风险，重构MOQ逻辑。'
+    }
+  };
+  const d=data[key]; if(!d) return;
+  document.getElementById('oppModalContent').innerHTML='<div style="margin-bottom:20px;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;">'+d.num+'</div><div style="font-size:20px;font-weight:800;color:var(--text1);">'+d.title+'</div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;"><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:10px;color:var(--text3);font-weight:700;margin-bottom:10px;letter-spacing:.08em;">BEFORE</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.before+'</div></div><div style="padding:14px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.15);border-radius:10px;"><div style="font-size:10px;color:#30d158;font-weight:700;margin-bottom:10px;letter-spacing:.08em;">NOW</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.now+'</div></div><div style="padding:14px;background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);border-radius:10px;"><div style="font-size:10px;color:#a78bfa;font-weight:700;margin-bottom:10px;letter-spacing:.08em;">FUTURE</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.future+'</div></div></div><div style="padding:12px 14px;background:rgba('+d.rgb+',.08);border:1px solid rgba('+d.rgb+',.2);border-radius:10px;"><div style="font-size:11px;color:'+d.color+';font-weight:700;margin-bottom:6px;">核心变化</div><div style="font-size:12px;color:var(--text2);line-height:1.6;">从<strong style="color:var(--text1);">人力密集型链路</strong>到<strong style="color:var(--text1);">AI自动化中台</strong>再到<strong style="color:var(--text1);">智能体自主运转</strong>，每一步都是结构性成本的指数级下降。</div></div>';
+  const m=document.getElementById('oppModal'), b=document.getElementById('oppModalBox');
+  m.style.display='flex';
+  requestAnimationFrame(function(){m.style.opacity='1';b.style.transform='translateY(0)';});
+}
+function closeOppModal(){
+  const m=document.getElementById('oppModal'), b=document.getElementById('oppModalBox');
+  m.style.opacity='0'; b.style.transform='translateY(20px)';
+  setTimeout(function(){m.style.display='none';},300);
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOppModal();});
+
 /* ── CURSOR ── */
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-ring');
