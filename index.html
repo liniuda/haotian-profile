@@ -1184,7 +1184,7 @@ html, body { width:100%; min-height:100%; overflow-y:auto; overflow-x:hidden; ba
 </div>
 <!-- 机会点详情弹窗 -->
 <div id="oppModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);z-index:99999;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;" onclick="if(event.target===this)closeOppModal()">
-  <div style="background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:32px;max-width:600px;width:92%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .3s;" id="oppModalBox">
+  <div style="background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:32px;max-width:860px;width:92%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .3s;" id="oppModalBox">
     <div onclick="closeOppModal()" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--text3);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">&#10005;</div>
     <div id="oppModalContent"></div>
   </div>
@@ -1197,31 +1197,35 @@ function openOppModal(key){
   const data={
     trade:{
       num:'01',title:'智能贸易中台',color:'#0a84ff',rgb:'10,132,255',
-      before:'询盘靠人工跟进，平均响应24h+；翻译外包3-5天；合同手动审核易出错；履约多方对接信息断层。全链路重度依赖人力，中小供应商出海门槛极高。',
-      now:'AI自动询盘回复（秒级响应）；实时多语言翻译；智能合规审查自动匹配HS编码；履约状态自动同步。人力成本降低70%，合规错误率趋近于零。',
-      future:'全链路无人化智能体，询盘到履约自主完成。中小供应商一键出海，AI自主谈判签约，贸易链路成本趋近于零。'
+      explain:'<span style="color:#0a84ff;font-weight:600;">智能</span> = AI 自动处理，不需要人工操作<br><span style="color:#0a84ff;font-weight:600;">贸易</span> = 从询盘到收款的完整外贸链路<br><span style="color:#0a84ff;font-weight:600;">中台</span> = 一个统一的平台，把所有环节打通',
+      example:'以前：一个中国小工厂想卖货到德国，需要找外贸公司（抽成15-20%）、找翻译、找货代、处理海关...折腾半年才成交第一单。<br><br>未来：在智能贸易中台上发布产品，AI 自动匹配德国买家、自动翻译沟通、自动处理报关、自动安排物流。工厂只负责生产，其他全部交给 AI。',
+      compare:'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="padding:10px;background:rgba(255,255,255,.03);border-radius:8px;"><div style="font-size:10px;color:var(--text3);font-weight:600;margin-bottom:6px;">以前</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">需要5-8人外贸团队<br>中间商抽成15-20%<br>询盘24h+才回复<br>靠关系触达有限客户</div></div><div style="padding:10px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.12);border-radius:8px;"><div style="font-size:10px;color:#30d158;font-weight:600;margin-bottom:6px;">未来</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">1人+AI中台搞定<br>平台佣金3-5%<br>秒级自动回复全球买家<br>AI匹配全球潜在买家</div></div></div>',
+      summary:'外贸从"大公司才能玩"变成"小工厂也能做"。AI 把信息不对称、语言壁垒、合规门槛全部抹平，让全球贸易真正变成"零距离"。'
     },
     selection:{
       num:'02',title:'实时选品预测',color:'#0a84ff',rgb:'10,132,255',
-      before:'靠经验和展会选品，命中率不足30%；库存积压或断货频发，平均库存周转60天+；滞销损失占营收15%以上。',
-      now:'AI聚合社媒、电商、搜索多维数据，实时捕捉消费趋势；智能补货建议将库存周转缩短至30天；滞销率下降60%。',
-      future:'需求预判式供给，ASI深度理解全球消费趋势，零库存按需生产。供应商从赌市场进化为预知市场。'
+      explain:'<span style="color:#0a84ff;font-weight:600;">实时</span> = 不是月度报告，是此刻正在发生什么<br><span style="color:#0a84ff;font-weight:600;">选品</span> = 决定生产什么、卖什么<br><span style="color:#0a84ff;font-weight:600;">预测</span> = 不是猜，是基于全网数据的判断',
+      example:'以前：义乌小商品老板每年去广交会抄爆款，回来生产10万件。结果爆款断货、滞销款积压，仓库堆满卖不动的货，现金流被库存吃掉。<br><br>未来：AI 监控 TikTok / Instagram 热门话题、亚马逊销量变化、Google 搜索趋势，提前2个月告诉你"复古墨镜在欧美要火"。你生产1万件试水，卖完再补。',
+      compare:'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="padding:10px;background:rgba(255,255,255,.03);border-radius:8px;"><div style="font-size:10px;color:var(--text3);font-weight:600;margin-bottom:6px;">以前</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">信息来源：展会、同行、经验<br>决策依据："我觉得会火"<br>库存风险：大批量赌博<br>周转天数：60-90天</div></div><div style="padding:10px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.12);border-radius:8px;"><div style="font-size:10px;color:#30d158;font-weight:600;margin-bottom:6px;">未来</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">信息来源：全网实时数据<br>决策依据："数据显示会火"<br>库存风险：小批量验证<br>周转天数：15-30天</div></div></div>',
+      summary:'从"赌市场"进化为"预知市场"。供需真正匹配，库存不再是悬在头上的剑，而是精确计算后的数字。'
     },
     supply:{
       num:'03',title:'供应链编排 OS',color:'#ff9f0a',rgb:'255,159,10',
-      before:'供应链断裂靠人工应急，响应时间48h+；物流信息不透明，异常发现滞后；缺乏全局调度视角，断链风险高。',
-      now:'AI监控全球物流异常，自动预警并推荐替代方案；供应商风险评级实时更新；断链响应时间缩短至2h。',
-      future:'ASI实时重排全球供应链拓扑，从响应型进化为预演型。具身机器人完成质检，实物核验成本趋近于零。'
+      explain:'<span style="color:#ff9f0a;font-weight:600;">供应链</span> = 原材料→工厂→港口→仓库→买家的完整链路<br><span style="color:#ff9f0a;font-weight:600;">编排</span> = 像乐队指挥一样，协调每个环节何时、何地、如何运转<br><span style="color:#ff9f0a;font-weight:600;">OS</span> = 操作系统，像 iOS 管理手机一样管理全球供应链',
+      example:'以前：货发出后就是"黑箱"，只有到港才知道延误。巴拿马运河堵了 → 等两周后才发现 → 紧急开会找替代方案 → 客户已经投诉了。<br><br>未来：ASI 像一位超级调度员，每秒重新计算最优路线。巴拿马运河堵了 → 立刻改走苏伊士运河；越南工厂停电 → 自动拆单给泰国/印尼备用工厂；美国港口罢工 → 提前两周把船改到东海岸。',
+      compare:'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="padding:10px;background:rgba(255,255,255,.03);border-radius:8px;"><div style="font-size:10px;color:var(--text3);font-weight:600;margin-bottom:6px;">以前 · 响应型</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">发现问题：货堵在港口才知道<br>处理方式：人紧急开会找方案<br>响应时间：48小时+<br>结果：延误2周，客户投诉</div></div><div style="padding:10px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.12);border-radius:8px;"><div style="font-size:10px;color:#30d158;font-weight:600;margin-bottom:6px;">未来 · 预演型</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">发现问题：提前30天预测台风影响<br>处理方式：ASI 自动分流货物<br>响应时间：实时自动调整<br>结果：客户根本没感觉到异常</div></div></div>',
+      summary:'供应链从"事后救火"进化为"事前预演"。全球资源像本地仓库一样灵活调度，突发事件不再意味着损失，只是系统的一次正常路由调整。'
     },
     manufacturing:{
       num:'04',title:'零库存按需制造',color:'#ff9f0a',rgb:'255,159,10',
-      before:'大批量生产赌市场，MOQ居高不下；库存积压严重，滞销损失吞噬利润；生产计划调整周期以月为单位。',
-      now:'小批量快反模式，MOQ降低50%；数据驱动生产决策，周转效率提升2倍；柔性产线支持快速换型。',
-      future:'ASI深度理解每个买家的个性化需求（文化、场景、生命周期），C2M按需制造。彻底消灭库存风险，重构MOQ逻辑。'
+      explain:'<span style="color:#ff9f0a;font-weight:600;">零库存</span> = 不需要囤货，生产出来直接发走<br><span style="color:#ff9f0a;font-weight:600;">按需</span> = 根据真实订单生产，不是预测<br><span style="color:#ff9f0a;font-weight:600;">制造</span> = 工厂从"大规模复制"进化为"个性化定制"',
+      example:'以前：服装厂夏季生产10万件T恤，赌其中某几款会爆。结果爆款断货（错失销量）、滞销款积压（吞噬利润）。为了降低单位成本而大批量生产，反而成了最大的成本。<br><br>未来：买家在平台下单"我要100件印这个图案的T恤"，工厂直接生产100件，48小时内发货。没有库存积压，没有滞销风险，小单也能赚钱。',
+      compare:'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="padding:10px;background:rgba(255,255,255,.03);border-radius:8px;"><div style="font-size:10px;color:var(--text3);font-weight:600;margin-bottom:6px;">以前</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">大批量生产赌市场<br>MOQ 高，小买家被挡门外<br>库存积压严重<br>生产调整周期以月计</div></div><div style="padding:10px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.12);border-radius:8px;"><div style="font-size:10px;color:#30d158;font-weight:600;margin-bottom:6px;">未来</div><div style="font-size:11px;color:var(--text2);line-height:1.6;">按真实订单生产<br>MOQ 趋近于1件<br>零库存风险<br>生产调整周期以天计</div></div></div>',
+      summary:'制造业摆脱"规模换成本"的囚徒困境。工厂不再需要赌市场，而是精准响应每一个真实需求。库存——这个制造业最大的隐形成本——被彻底消灭。'
     }
   };
   const d=data[key]; if(!d) return;
-  document.getElementById('oppModalContent').innerHTML='<div style="margin-bottom:20px;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;">'+d.num+'</div><div style="font-size:20px;font-weight:800;color:var(--text1);">'+d.title+'</div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;"><div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;"><div style="font-size:10px;color:var(--text3);font-weight:700;margin-bottom:10px;letter-spacing:.08em;">BEFORE</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.before+'</div></div><div style="padding:14px;background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.15);border-radius:10px;"><div style="font-size:10px;color:#30d158;font-weight:700;margin-bottom:10px;letter-spacing:.08em;">NOW</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.now+'</div></div><div style="padding:14px;background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);border-radius:10px;"><div style="font-size:10px;color:#a78bfa;font-weight:700;margin-bottom:10px;letter-spacing:.08em;">FUTURE</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.future+'</div></div></div><div style="padding:12px 14px;background:rgba('+d.rgb+',.08);border:1px solid rgba('+d.rgb+',.2);border-radius:10px;"><div style="font-size:11px;color:'+d.color+';font-weight:700;margin-bottom:6px;">核心变化</div><div style="font-size:12px;color:var(--text2);line-height:1.6;">从<strong style="color:var(--text1);">人力密集型链路</strong>到<strong style="color:var(--text1);">AI自动化中台</strong>再到<strong style="color:var(--text1);">智能体自主运转</strong>，每一步都是结构性成本的指数级下降。</div></div>';
+  document.getElementById('oppModalContent').innerHTML='<div style="margin-bottom:18px;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;font-weight:600;">'+d.num+'</div><div style="font-size:22px;font-weight:800;color:var(--text1);">'+d.title+'</div></div><div style="margin-bottom:20px;"><div style="font-size:13px;font-weight:700;color:var(--text1);margin-bottom:10px;">这个概念是什么意思？</div><div style="font-size:12px;color:var(--text2);line-height:1.9;">'+d.explain+'</div></div><div style="margin-bottom:20px;padding:16px;background:rgba('+d.rgb+',.06);border:1px solid rgba('+d.rgb+',.15);border-radius:12px;"><div style="font-size:12px;font-weight:700;color:'+d.color+';margin-bottom:10px;">举个例子</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.example+'</div></div><div style="margin-bottom:20px;"><div style="font-size:13px;font-weight:700;color:var(--text1);margin-bottom:10px;">变化有多大？</div>'+d.compare+'</div><div style="padding:14px;background:rgba('+d.rgb+',.08);border:1px solid rgba('+d.rgb+',.2);border-radius:12px;"><div style="font-size:12px;font-weight:700;color:'+d.color+';margin-bottom:8px;">核心变化</div><div style="font-size:12px;color:var(--text2);line-height:1.7;">'+d.summary+'</div></div>';
   const m=document.getElementById('oppModal'), b=document.getElementById('oppModalBox');
   m.style.display='flex';
   requestAnimationFrame(function(){m.style.opacity='1';b.style.transform='translateY(0)';});
